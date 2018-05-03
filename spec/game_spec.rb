@@ -16,8 +16,30 @@ describe Game do
 
   describe '#attack' do
     it "deducts a player's health when attacked" do
-      expect(the_beast).to receive(:reduce_health)
-      subject.attack(the_beast)
+      expect(mark).to receive(:reduce_health)
+      subject.attack
+    end
+  end
+
+  describe 'turn' do
+    it "returns true if player one's turn" do
+      expect(subject.player_one_turn).to eq true
+    end
+
+    it "returns false if not player one's turn" do
+      allow(mark).to receive(:reduce_health)
+      subject.attack
+      expect(subject.player_one_turn).to eq false
+    end
+
+    it "returns player one if player one's turn" do
+      expect(subject.attacker).to eq the_beast
+    end
+
+    it "returns player two if player two's turn" do
+      allow(mark).to receive(:reduce_health)
+      subject.attack
+      expect(subject.attacker).to eq mark
     end
   end
 
