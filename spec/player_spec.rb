@@ -19,9 +19,5 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it "deducts a player's health when attacked" do
-      expect { mark.attack(the_beast) }.to change{ the_beast.health }.by(-described_class::HEALTH_DEDUCTION)
-    end
-  end
+
 end
