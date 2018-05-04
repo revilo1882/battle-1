@@ -25,7 +25,11 @@ class Battle < Sinatra::Base
   get '/attack' do
     @game = $game
     @game.attack
-    erb(:attack)
+    if @game.player_one.health <= 0 || @game.player_two.health <= 0
+      erb(:win)
+    else
+      erb(:attack)
+    end
   end
 
   # start the server if ruby file executed directly
