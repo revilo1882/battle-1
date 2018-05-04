@@ -7,8 +7,5 @@ feature 'Switch turns' do
     expect(page).to have_content('The Beast Attacked Mark')
   end
 
-  scenario 'starts with player one' do
-    sign_in_and_play
-    expect($game.attacker.name).to eq ('Mark')
-  end
+
 end

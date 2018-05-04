@@ -21,4 +21,12 @@ class Game
     @player_one_turn? @player_two : @player_one
   end
 
+  def self.create(player_one, player_two)
+    @game = Game.new(player_one, player_two)
+  end
+
+  def self.instance
+    @game 
+  end
+
 end
