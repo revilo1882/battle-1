@@ -10,7 +10,13 @@ class Player
   end
 
   def reduce_health
-    @health -= HEALTH_DEDUCTION
+    @health -= random_health
+
+  end
+
+ private
+  def random_health
+    Kernel.rand(1..30)
   end
 
 end

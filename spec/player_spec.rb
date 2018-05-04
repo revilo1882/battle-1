@@ -15,7 +15,8 @@ describe Player do
     end
 
     it "deducts a player's health" do
-      expect { the_beast.reduce_health }.to change{ the_beast.health }.by(-described_class::HEALTH_DEDUCTION)
+      allow(the_beast).to receive(:random_health).and_return(20)
+      expect { the_beast.reduce_health }.to change{ the_beast.health }.by(-20)
     end
   end
 
